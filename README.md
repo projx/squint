@@ -24,7 +24,7 @@ AT MOST, SCHEDULE THIS SCRIPT TO RUN ONCE AN HOUR
 
 Blink do not publish their API details, they do no officially allow 3rd party access. But as long as they are not abused, they seem to unofficially tolerate it. 
 
-When doing the initial configuration make use of Squits "simulate" features, when live testing, leave 60 seconds between tests. Then when going live, minimise the number of times you run it, my recommendation is at most, once an hour. 
+When doing the initial configuration make use of Squints "simulate" features. When live testing, leave 60 seconds between tests. Then when going live, minimise the number of times you run it, my recommendation is at most, once an hour. 
 
 You have been warned - Blink can and will disable accounts of customers who abuse this privilege. If this happens you will need to contact them to get it reactivated.
 
