@@ -1,0 +1,49 @@
+#### THIS IS AN EXAMPLE CONFIG FILE ONLY....
+##
+## Squint.py will automatically build this for you, by retrieving 
+## your camera details from Blink. Just run the following:
+##
+## squint.py config generate "<YOUR_BLINK_ID>" "<YOUR_BLINK_PASSWORD>"
+
+auth:
+  username: BLINK_USER_ID
+  password: BLINK_PASSWORD
+cameras:
+  CAM-02 Downstairs Hall:
+    name: CAM-02 Downstairs Hall
+    schedules:
+      00-NIGHT:
+        from_time: '0000'
+        motion_detect: true
+        schedule_name: 00-NIGHT
+        until_time: 0659
+      01-DAY:
+        from_time: '0700'
+        motion_detect: false
+        schedule_name: 01-DAY
+        until_time: '2259'
+      02-EVENING:
+        from_time: '2300'
+        motion_detect: true
+        schedule_name: 02-EVENING
+        until_time: '2359'
+    sync_module: HOUSE
+  CAM-05 Front Door:
+    name: CAM-05 Front Door
+    schedules:
+      00-NIGHT:
+        from_time: '0000'
+        motion_detect: true
+        schedule_name: 00-NIGHT
+        until_time: 0659
+      01-DAY:
+        from_time: '0700'
+        motion_detect: true
+        schedule_name: 01-DAY
+        until_time: '2259'
+      02-EVENING:
+        from_time: '2300'
+        motion_detect: true
+        schedule_name: 02-EVENING
+        until_time: '2359'
+    sync_module: GARDENS
