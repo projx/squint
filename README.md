@@ -5,9 +5,9 @@ The Blink Security Cameras are pretty awesome, unfortunately, the scheduling tur
 
 **What is the impact of this?** Say you have 6 cameras around your property, but only want the front door monitored during the day, well tough. you can't. Its all or nothing. Actually, there is one method, you have to buy an additional Sync Module just for that camera.
 
-This is not an oversight of Blink, literally hundreds of customers have made the same request over the past couple of years (Take a look at the blink community). As yet, Blink has not seen fit to comment on it. I won't attempt to decipher why. 
+This is not an oversight of Blink,  hundreds of customers have made the same request over the past couple of years (Take a look at the blink community forums). As yet, all Blink have said is "They would like to add it".  
 
-After spending over £1000 on Blink Cameras, I didn't have much appetite for spending more, but for various reasons, we needed the ability to add specific schedules for 1 or 2 cameras, aswell as download the videos for long-term storage. 
+After buying 6 Blink Cameras and 2 Sync Modules, I didn't have much appetite for spending more, but we needed the ability to add specific schedules for some of the cameras, as well as download the videos for long-term storage. 
 
 So, I put my weekend script-kiddie hat on, and this is the result. 
 
@@ -88,6 +88,7 @@ WIP
 WIP
 
 ## TODO
+-[ ] Add unit testing
 -[ ] Implement clip downloading
 -[ ] Implement photo snaps
 -[ ] Add simulate against live (So changes are only indicated)
