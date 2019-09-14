@@ -14,10 +14,10 @@ So, I put my weekend script-kiddie hat on, and this is the result.
 ## Introduction
 Squint is a script that allows the automation and control of individual Blink Cameras, with:
  
- -[x] Multiple schedules for each camera for managing Motion Detection
+- [x] Multiple schedules for each camera for managing Motion Detection
 - [x] Automatically builds its own configuration file, based upon you Blink Cameras
- -[ ] Scheduled downloading of new videos to your server/NAS/Laptop (WIP)
- -[ ] Scheduled taking of new photo snaps
+- [ ] Scheduled downloading of new videos to your server/NAS/Laptop (WIP)
+- [ ] Scheduled taking of new photo snaps
 
 # Warning
 AT MOST, SCHEDULE THIS SCRIPT TO RUN ONCE AN HOUR
@@ -88,10 +88,10 @@ WIP
 WIP
 
 ## TODO
--[ ] Add unit testing
--[ ] Implement clip downloading
--[ ] Implement photo snaps
--[ ] Add simulate against live (So changes are only indicated)
+- [ ] Add unit testing
+- [ ] Implement clip downloading
+- [ ] Implement photo snaps
+- [ ] Add simulate against live (So changes are only indicated)
 
 
 
