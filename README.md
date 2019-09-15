@@ -73,7 +73,6 @@ squint.py push execute --testresponse
 ```
 Please see below for more details on the "push execute"
 
-
 ### Scheduling (Motion Detection)
 Once happy with the configuration, Squint can connect to the Blink servers, and attemmpt to apply the desired setting
 ```
@@ -82,12 +81,11 @@ squint.py push execute
 In order to automate this on an ongoing basis, simple add this to your crontab or scheduler. Please do head the warning
 section above.
 
-### Scheduling (Clip Downloading)
-WIP
-### Scheduling (Photo Snaps)
-WIP
+
+
 
 ## TODO
+- [ ] Add an overview of the configuration file
 - [ ] Add unit testing
 - [ ] Implement clip downloading
 - [ ] Implement photo snaps
