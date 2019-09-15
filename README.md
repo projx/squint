@@ -93,6 +93,8 @@ section above.
 
 
 ## TODO
+- [ ] Split classes and namespace
+- [ ] Add autosetup.py script
 - [ ] Add an overview of the configuration file
 - [ ] Add unit testing
 - [ ] Implement clip downloading

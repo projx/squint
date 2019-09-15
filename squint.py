@@ -92,8 +92,6 @@ class SquintConfigManager():
         self.config["auth"]["username"] = username
         self.config["auth"]["password"] = password
 
-        pprint(self.config)
-
     def get_cameras(self):
         return self.config["cameras"]
 
