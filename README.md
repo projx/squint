@@ -1,34 +1,32 @@
 # Squint - Blink Security Camera Scheduler
 
 ## Background
-The Blink Security Cameras are pretty awesome, unfortunately, the scheduling turning monitoring on/off is lousy, its done at the Sync Module (Their Hub) level, so a schedule applies to every Camera associated with it. In a nutshell, its not possible to schedule individual cameras. 
+The Blink Security Cameras are pretty awesome, unfortunately, the scheduling for turning monitoring on and off is lousy, its done at the Sync Module (Their Hub) level, so a schedule applies to every Camera associated with it - In a nutshell, its not possible to schedule individual cameras. 
 
-**What is the impact of this?** Say you have 6 cameras around your property, but only want the front door monitored during the day, well tough. you can't. Its all or nothing. Actually, there is one method, you have to buy an additional Sync Module just for that camera.
+**What is the impact of this?** Say you have 6 cameras around your property, but only want the front door monitored during the day, well tough you can't, Its all or nothing! Actually, there is one method, you have to buy an additional Sync Module just for that camera.
 
 This is not an oversight of Blink,  hundreds of customers have made the same request over the past couple of years (Take a look at the blink community forums). As yet, all Blink have said is "They would like to add it".  
 
-After buying 6 Blink Cameras and 2 Sync Modules, I didn't have much appetite for spending more, but we needed the ability to add specific schedules for some of the cameras, as well as download the videos for long-term storage - Hence Squint!
+After buying 6 Blink Cameras and 2 Sync Modules, I didn't have much appetite for spending more, but we needed the ability to add specific schedules for some of the cameras, as well as download the videos for long-term storage - So I wrote Squint!
 
-Please keep in mind this a few hours of keyboard-bashing, its a very early release, so if you have any problem, please either
+Please keep in mind this a few hours of keyboard-bashing and this is the first release, so if you have any problem, please either
 * Open an Issue with details (and I'll try to fix it
 * Just delete it 
 
 ## Introduction
 Squint is a script that allows the automation and control of individual Blink Cameras, with:
  
-- [x] Multiple schedules for each camera for managing Motion Detection
+- [x] Multiple schedules for each camera for enabling/disabling Motion Detection
 - [x] Automatically builds its own configuration file, based upon you Blink Cameras
 - [ ] Scheduled downloading of new videos to your server/NAS/Laptop (WIP)
 - [ ] Scheduled taking of new photo snaps
 
 # Warning
-AT MOST, SCHEDULE THIS SCRIPT TO RUN ONCE AN HOUR
-
 Blink do not publish their API details, they do no officially allow 3rd party access. But as long as they are not abused, they seem to unofficially tolerate it. 
 
 When doing the initial configuration make use of Squints "simulate" features. When live testing, leave 60 seconds between tests. Then when going live, minimise the number of times you run it, my recommendation is at most, once an hour. 
 
-You have been warned - Blink can and will disable accounts of customers who abuse this privilege. If this happens you will need to contact them to get it reactivated.
+**You have been warned - Blink can and will disable accounts of customers who hammer their servers. If this happens you will need to contact them to get it reactivated.**
 
 ## Installation
 When I get time, I'll add an autosetup.py, but the simplest installation is as follows:
@@ -40,22 +38,26 @@ When I get time, I'll add an autosetup.py, but the simplest installation is as f
 ## Usage 
 
 ### Initial Configuration
-Squint automatically generate your initial configuration for you, it does retrieving your list of cameras from Blink, which it uses to build a boilerplate configuration file, this will include your credentials and a basic schedule for each Camera. 
+Squint automatically generate your initial configuration for you, it retrieves a list of your cameras from Blink, which it uses to build a boilerplate configuration file, this will include your credentials and a basic schedule for each camera. 
 
-To do this, run the Squint with the following parameters:
+To do this, run Squint with the following parameters:
 ```
 squint.py config generate "<YOUR_BLINK_ID>" "<YOUR_BLINK_PASSWORD>"
 ```
-This will generate the etc/squint.yml file, you can edit this with any text editor and tweak times and motion detection etc. 
+This will generate < install path >/etc/squint.yml file, which is in YAML format, you can edit this with any text editor and tweak times and motion detection status etc. 
 
 Notes:
+* Squint expects to find th etc/squint.yml in the same directory as it self
+* The time format for from_time and until_time fields, is 24hr, i.e. 1200 and 1200 (NOTE no colon)
+* The motion detection value must be "true" or "false" all lower case
+* Being a YAML file, white spacing is critical 
 * Credentials are stored in plain text. Do not deploy this script onto a shared system. 
 * Running this command again, will force the existing file to be overwritten. Which is useful if you make a mistake, but be aware, you will lose any modifications you have made.
 
 ### Testing / Simulating 
-In order to avoid the need to constantly connect to the Blink servers, Squint has a feature that allows you to save a copy of the data that Blink sends. You can then use this to test your configuration without bothering their servers, this can also be used for regenerating the configuration file.
+In order to avoid the need to constantly connect to the Blink servers, Squint has a feature that allows you to save a copy of the data that Blink sends. You can then use this to test your configuration without fear of sending too many requests to Blink, this can also be used for regenerating the configuration file.
 
-To pull the data from Blink and save it locally, run:
+To pull the data from Blink and save it locally, you should first generate your initial config (as shown above), then run:
 ```
 squint.py debug save 
 ```
@@ -76,11 +78,8 @@ squint.py push execute --testresponse
 Please see below for more details on the "push execute"
 
 ### Scheduling (Motion Detection)
-First of all, Squint does not arm/disarm your Sync Modules. For Squint to do its job. you will need to update your
-Sync Module schedule(s) in the Blink mobile app. You should either leave them armed 24/7, or at minimum ensure they
-are armed to co
-The first step, is to update the your Sync Module schedule(s), so they run 24/7, from this point Squint will handle
-the scheduling of your cameras (If you fail to do this, then)
+First of all, Squint does not arm/disarm your Sync Modules, only Motion Detection on each camera. For Squint to do its job. you will need to update your
+Sync Module schedule(s) in the Blink mobile app, so it remains armed 24/7, or at least at the times you schedule Squint tp enable Motion Detection.
 
 Once happy with the configuration, Squint can connect to the Blink servers, and attemmpt to apply the desired setting
 ```
@@ -93,6 +92,9 @@ section above.
 
 
 ## TODO
+- [ ] Allow data to be saved when generating initial config (removes need for "debug save"))
+- [ ] Replace use of click.echo() with proper logging
+- [ ] Add exception handling
 - [ ] Split classes and namespace
 - [ ] Add autosetup.py script
 - [ ] Add an overview of the configuration file

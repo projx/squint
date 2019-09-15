@@ -170,6 +170,7 @@ class SquintConnectionManager:
             print("{} is currently {}, changing this to {}".format(camera_name, current_status, new_status))
             camera.set_motion_detect(new_status)
             time.sleep(2)
+            camera.set_motion_detect(new_status)
         else:
             print("{} is already currently {}, leaving as-is".format(camera_name, current_status))
 
