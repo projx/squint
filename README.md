@@ -10,7 +10,7 @@ This is not an oversight of Blink,  hundreds of customers have made the same req
 After buying 6 Blink Cameras and 2 Sync Modules, I didn't have much appetite for spending more, but we needed the ability to add specific schedules for some of the cameras, as well as download the videos for long-term storage - So I wrote Squint!
 
 Please keep in mind this a few hours of keyboard-bashing and this is the first release, so if you have any problem, please either
-* Open an Issue with details (and I'll try to fix it
+* Open an Issue with details (and I'll try to fix it)
 * Just delete it 
 
 ## Introduction
@@ -92,7 +92,7 @@ section above.
 
 
 ## TODO
-- [ ] Allow data to be saved when generating initial config (removes need for "debug save"))
+- [ ] Allow data to be saved when generating initial config (removes need for "debug save")
 - [ ] Replace use of click.echo() with proper logging
 - [ ] Add exception handling
 - [ ] Split classes and namespace
