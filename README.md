@@ -7,9 +7,11 @@ The Blink Security Cameras are pretty awesome, unfortunately, the scheduling tur
 
 This is not an oversight of Blink,  hundreds of customers have made the same request over the past couple of years (Take a look at the blink community forums). As yet, all Blink have said is "They would like to add it".  
 
-After buying 6 Blink Cameras and 2 Sync Modules, I didn't have much appetite for spending more, but we needed the ability to add specific schedules for some of the cameras, as well as download the videos for long-term storage. 
+After buying 6 Blink Cameras and 2 Sync Modules, I didn't have much appetite for spending more, but we needed the ability to add specific schedules for some of the cameras, as well as download the videos for long-term storage - Hence Squint!
 
-So, I put my weekend script-kiddie hat on, and this is the result. 
+Please keep in mind this a few hours of keyboard-bashing, its a very early release, so if you have any problem, please either
+* Open an Issue with details (and I'll try to fix it
+* Just delete it 
 
 ## Introduction
 Squint is a script that allows the automation and control of individual Blink Cameras, with:
@@ -74,6 +76,12 @@ squint.py push execute --testresponse
 Please see below for more details on the "push execute"
 
 ### Scheduling (Motion Detection)
+First of all, Squint does not arm/disarm your Sync Modules. For Squint to do its job. you will need to update your
+Sync Module schedule(s) in the Blink mobile app. You should either leave them armed 24/7, or at minimum ensure they
+are armed to co
+The first step, is to update the your Sync Module schedule(s), so they run 24/7, from this point Squint will handle
+the scheduling of your cameras (If you fail to do this, then)
+
 Once happy with the configuration, Squint can connect to the Blink servers, and attemmpt to apply the desired setting
 ```
 squint.py push execute
