@@ -33,12 +33,15 @@ When I get time, I'll add an autosetup.py, but the simplest installation is as f
 
 1. Create a python3.5+ virtualenv (My environment is python 3.7)
 2. Clone the repository, or download the zip file
-3. Run "pip install -r requirements.txt"
+3. Install the required libraries, with the virtualenv activated, run the following:
 
+```
+pip install -r requirements.txt
+```
 ## Usage 
 
 ### Initial Configuration
-Squint automatically generate your initial configuration for you, it retrieves a list of your cameras from Blink, which it uses to build a boilerplate configuration file, this will include your credentials and a basic schedule for each camera. 
+Squint automatically generates your initial configuration for you, it retrieves a list of your cameras from Blink, which it uses to build a boilerplate configuration file, this will include your credentials and a basic schedule for each camera. 
 
 To do this, run Squint with the following parameters:
 ```
@@ -46,9 +49,9 @@ squint.py config generate "<YOUR_BLINK_ID>" "<YOUR_BLINK_PASSWORD>"
 ```
 This will generate < install path >/etc/squint.yml file, which is in YAML format, you can edit this with any text editor and tweak times and motion detection status etc. 
 
-Notes:
-* Squint expects to find th etc/squint.yml in the same directory as it self
-* The time format for from_time and until_time fields, is 24hr, i.e. 1200 and 1200 (NOTE no colon)
+**Notes:**
+* Squint expects to find the etc/squint.yml in the same directory as it self
+* The time format for **from_time** and **until_time fields**, is 24hr, i.e. 1200 and 1200 (NOTE no colon)
 * The motion detection value must be "true" or "false" all lower case
 * Being a YAML file, white spacing is critical 
 * Credentials are stored in plain text. Do not deploy this script onto a shared system. 
@@ -92,6 +95,7 @@ section above.
 
 
 ## TODO
+- [ ] Add "Days" to schedule
 - [ ] Allow data to be saved when generating initial config (removes need for "debug save")
 - [ ] Replace use of click.echo() with proper logging
 - [ ] Add exception handling
